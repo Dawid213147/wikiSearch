@@ -1,0 +1,4 @@
+services:
+#    wiki_search.example:
+#        class: Wiki\SearchBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,12 @@
+{% extends "WikiSearchBundle::base.html.twig" %}
+
+{% block pageContainer %}
+    {% if wikiPages == NULL %}
+        <p>Our website is in maintenance mode. Please, come back later.</p>
+    {% else %}
+
+        {% for article in wikiPages %}
+            {{article.title}} <br><hr>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

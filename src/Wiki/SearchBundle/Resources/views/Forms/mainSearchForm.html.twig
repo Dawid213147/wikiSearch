@@ -1,0 +1,20 @@
+<form method="post" action="{{ url }}" enctype="multipart/form-data">
+<div class="container">
+	<div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div id="imaginary_container"> 
+                <h1>Wyszukiwarka!</h1>
+                <div class="input-group stylish-input-group">
+                    {{ form_widget(form.wikiSearch, {'attr': {'class': 'form-control', 'placeholder': 'Search' }}) }}
+                    {{ form_errors(form.wikiSearch) }}
+                    <span class="input-group-addon">
+                        <button class="searchSubmit" type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+</form>

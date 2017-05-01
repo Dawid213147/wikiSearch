@@ -1,0 +1,2 @@
+parameters:
+    http_web_service: http://en.wikipedia.org/w/api.php
