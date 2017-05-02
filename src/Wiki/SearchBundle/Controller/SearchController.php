@@ -22,7 +22,7 @@ class SearchController extends Controller {
             'WikiSearchBundle:Search:search.html.twig', [
             'wikiPages' => $searchResult,
         ]);
-        
+
         return $response;
     }
 
