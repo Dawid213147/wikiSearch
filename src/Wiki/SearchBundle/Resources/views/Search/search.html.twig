@@ -1,7 +1,7 @@
 {% extends "WikiSearchBundle::base.html.twig" %}
-
 {% block pageContainer %}
         {% set url = app.request.uri %}
+        {% set controller = 'off' %}
         {{ render(controller('WikiSearchBundle:SearchForm:index', { 'url': url })) }}
     {% if wikiPages == NULL %}
         <p>Not found any matches.</p>

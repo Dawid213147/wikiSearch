@@ -18,6 +18,7 @@ class SearchController extends Controller {
         $searchValue = $request->request->get('form')['wikiSearch'];
         $web_serwise = $this->container->getParameter('http_web_service');
         $searchResult = $wikiPages->getHttpRequestResult($searchValue, $web_serwise);
+        
         $response = $this->render(
             'WikiSearchBundle:Search:search.html.twig', [
             'wikiPages' => $searchResult,

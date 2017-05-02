@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 class SearchFormController extends Controller {
 
     /**
-     * Create a form
+     * Create a search form
      * @return type
      */
     public function indexAction(Request $request, $url = null) {
