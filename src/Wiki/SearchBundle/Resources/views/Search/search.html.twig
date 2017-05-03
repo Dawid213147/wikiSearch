@@ -1,21 +1,21 @@
 {% extends "WikiSearchBundle::base.html.twig" %}
 {% block pageContainer %}
         {% set url = app.request.uri %}
-        {{ dump(image) }}
-        {{ dump(wikiPages) }}
         {{ render(controller('WikiSearchBundle:SearchForm:index', { 'url': url })) }}
 <div class="resultWrapper">        
     {% if wikiPages == NULL %}
         <p>Not found any matches.</p>
     {% else %}
         <h2>Search results for {{ searchValue }} </h2>
-        <img src="{{ image }}" />
     <ol>
         {% for article in wikiPages %}
         <li><a href="http://www.wikipedia.org/wiki/
-        {{article.title}}">
-        {{article.title}}</a> <br/>
-      <small>{{article.snippet | raw }}</small></li>
+        {{ article.title }}">
+        {{ article.title }}</a> <br/>
+      <small>{{ article.snippet | raw }}</small>
+      <br>
+      <span><img src="{{ article.image }}" /></span>
+        </li>
         {% endfor %}
     </ol>
     <div class="bs-example">

@@ -3,7 +3,7 @@
 	<div class="row">
         <div class="col-sm-6 col-sm-offset-3">
             <div id="imaginary_container"> 
-                <img src="{{ asset('bundles/wikisearch/custom/image/WikiApp.png') }}" >
+                <a href="{{ app.request.baseUrl }}"><img src="{{ asset('bundles/wikisearch/custom/image/WikiApp.png') }}" ></a>
                 <div class="input-group stylish-input-group">
                     {% set wikiSearch = form.wikiSearch %}
                     {{ form_widget(wikiSearch, {'attr': {'class': 'form-control searchbox', 'placeholder': 'Search' }}) }}

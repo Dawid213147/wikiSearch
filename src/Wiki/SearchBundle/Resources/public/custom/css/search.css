@@ -22,6 +22,9 @@ body > div.container > div.container > form > div > div {
 .glyphicon-arrow-right:before {
     font-size: 50%;
 }
-#imaginary_container > img {
+#imaginary_container > a > img {
     width: 100%;
+}
+.searchmatch {
+    font-weight: 900;
 }
