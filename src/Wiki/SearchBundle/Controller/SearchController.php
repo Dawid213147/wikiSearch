@@ -4,7 +4,8 @@ namespace Wiki\SearchBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Wiki\SearchBundle\Helper\HttpRequest\HttpRequest;
+use Wiki\SearchBundle\Helper\HttpRequestSearch\HttpRequestSearch;
+use Wiki\SearchBundle\Helper\HttpRequestImage\HttpRequestImage;
 use Symfony\Component\HttpFoundation\Request;
 
 class SearchController extends Controller {
@@ -14,11 +15,13 @@ class SearchController extends Controller {
      * @return string
      */
     public function searchAction(Request $request) {
-        $wikiPages = new HttpRequest();
+        $wikiPages = new HttpRequestSearch();
+        $wikiImage = new HttpRequestImage();
         $searchValue = $request->query->get('form')['wikiSearch'];
         $searchLimit = $request->query->get('limit') ? $request->query->get('limit') : 10;
         $web_serwise = $this->container->getParameter('http_web_service');
         $searchResult = $wikiPages->getHttpRequestResult($searchValue, $web_serwise, $searchLimit);
+        $searchImage = $wikiImage->getHttpRequestImage($searchValue, $web_serwise);
         $url = strtok($request->getRequestUri(),'&');
         $urlDecode = urldecode($url);
         $response = $this->render(
@@ -26,6 +29,7 @@ class SearchController extends Controller {
             'wikiPages' => $searchResult,
             'searchValue' => $searchValue,
             'decodeUrl' => $urlDecode,
+            'image' => $searchImage,
         ]);
    
         return $response;

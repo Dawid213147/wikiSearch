@@ -1,13 +1,13 @@
 <?php
 
-namespace Wiki\SearchBundle\Helper\HttpRequest;
+namespace Wiki\SearchBundle\Helper\HttpRequestSearch;
 
 use GuzzleHttp\Client;
 
 /**
  * Class creata a request to webservice
  */
-class HttpRequest {
+class HttpRequestSearch {
 
     /**
      * Value of a http client

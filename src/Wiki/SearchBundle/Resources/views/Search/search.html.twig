@@ -1,14 +1,17 @@
 {% extends "WikiSearchBundle::base.html.twig" %}
 {% block pageContainer %}
         {% set url = app.request.uri %}
+        {{ dump(wikiPages) }}
         {{ render(controller('WikiSearchBundle:SearchForm:index', { 'url': url })) }}
+<div class="resultWrapper">        
     {% if wikiPages == NULL %}
         <p>Not found any matches.</p>
     {% else %}
         <h2>Search results for {{ searchValue }} </h2>
+        <img src="{{ image }}" />
     <ol>
         {% for article in wikiPages %}
-            <li><a href="http://www.wikipedia.org/wiki/
+        <li><a href="http://www.wikipedia.org/wiki/
         {{article.title}}">
         {{article.title}}</a> <br/>
       <small>{{article.snippet | raw }}</small></li>
@@ -16,6 +19,7 @@
     </ol>
     <div class="bs-example">
     <ul class="pagination">
+        <li><a href="{{ decodeUrl }}&limit=10">10 results</a></li>
         <li><a href="{{ decodeUrl }}&limit=25">25 results</a></li>
         <li><a href="{{ decodeUrl }}&limit=50">50 results</a></li>
         <li><a href="{{ decodeUrl }}&limit=100">100 results</a></li>
@@ -23,6 +27,7 @@
         <li><a href="{{ decodeUrl }}&limit=500">500 results</a></li>
     </ul>
 </div>
+    </div>
     {% endif %}
 {% endblock %}
 

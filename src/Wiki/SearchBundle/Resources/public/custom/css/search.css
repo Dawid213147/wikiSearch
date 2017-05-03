@@ -1,4 +1,11 @@
-.searchSubmit{
+.searchSubmit {
     border: none;
     background: none;
+}
+.resultWrapper {
+  margin-left: 10%;
+}
+
+.bs-example {
+    text-align: center;
 }
