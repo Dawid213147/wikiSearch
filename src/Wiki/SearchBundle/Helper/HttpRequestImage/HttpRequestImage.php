@@ -10,7 +10,7 @@ use GuzzleHttp\Client;
  * @author Dawid
  */
 class HttpRequestImage {
-  
+
     /**
      * Value of a http client
      * @var object
@@ -40,22 +40,23 @@ class HttpRequestImage {
 
         $client = $this->client;
 
-        $request = $client->request('GET', $webService, [
-            'verify' => false,
-            'query' => [
-                'action' => 'query',
-                'prop' => 'pageimages',
-                'srwhat' => 'text',
-                'titles' => $search,
-                'pithumbsize' => 100,
-                'format' => 'xml'
-            ]
-        ]);
-        $this->request = $request;
-
-        $result = $this->prepareData();
-
-        return $result;
+        try {
+            $request = $client->request('GET', $webService, [
+                'verify' => false,
+                'query' => [
+                    'action' => 'query',
+                    'prop' => 'pageimages',
+                    'titles' => $search,
+                    'pithumbsize' => 100,
+                    'format' => 'xml'
+                ]
+            ]);
+            $this->request = $request;
+            $result = $this->prepareData();
+            return $result;
+        } catch (\Exception $e) {
+            return FALSE;
+        }
     }
 
     /**
@@ -64,15 +65,15 @@ class HttpRequestImage {
      */
     private function prepareData() {
 
-        $pages = $this->getRequestBodyAsObject();
+        $pagesImage = $this->getRequestBodyAsObject();
 
-        $wikiImage = json_decode(json_encode($pages->query->pages->page->thumbnail['source']), TRUE);
-        
+        $wikiImage = json_decode(json_encode($pagesImage->query->pages->page->thumbnail['source']), TRUE);
+
         if ($wikiImage != NULL) {
-            
+
             return $wikiImage[0];
         }
-        
+
         return NULL;
     }
 

@@ -1,6 +1,7 @@
 {% extends "WikiSearchBundle::base.html.twig" %}
 {% block pageContainer %}
         {% set url = app.request.uri %}
+        {{ dump(image) }}
         {{ dump(wikiPages) }}
         {{ render(controller('WikiSearchBundle:SearchForm:index', { 'url': url })) }}
 <div class="resultWrapper">        
