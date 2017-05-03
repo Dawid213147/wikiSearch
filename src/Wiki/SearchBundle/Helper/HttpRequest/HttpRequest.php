@@ -34,7 +34,7 @@ class HttpRequest {
      * @param string $search
      * @return array
      */
-    public function getHttpRequestResult($search, $webService) {
+    public function getHttpRequestResult($search, $webService, $limit) {
 
         $client = $this->client;
 
@@ -45,7 +45,7 @@ class HttpRequest {
                 'list' => 'search',
                 'srwhat' => 'text',
                 'srsearch' => $search,
-                'srlimit' => '10',
+                'srlimit' => $limit,
                 'format' => 'xml'
             ]
         ]);

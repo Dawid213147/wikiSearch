@@ -3,6 +3,7 @@
 namespace Wiki\SearchBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,8 +14,9 @@ use Symfony\Component\HttpFoundation\Request;
 class SearchFormController extends Controller {
 
     /**
+     * @Route("/")
      * Create a search form
-     * @return type
+     * @return array
      */
     public function indexAction(Request $request, $url = null) {
 

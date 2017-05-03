@@ -1,12 +1,12 @@
-<form method="post" action="{{url}}" enctype="multipart/form-data">
+<form method="get" action="{{url}}" enctype="multipart/form-data">
 <div class="container">
 	<div class="row">
         <div class="col-sm-6 col-sm-offset-3">
             <div id="imaginary_container"> 
-                <h1>Wyszukiwarka!</h1>
+                <h1>Knowleage centre</h1>
                 <div class="input-group stylish-input-group">
                     {% set wikiSearch = form.wikiSearch %}
-                    {{ form_widget(wikiSearch, {'attr': {'class': 'form-control', 'placeholder': 'Search' }}) }}
+                    {{ form_widget(wikiSearch, {'attr': {'class': 'form-control searchbox', 'placeholder': 'Search' }}) }}
                     {{ form_errors(wikiSearch) }}
                     <span class="input-group-addon">
                         <button class="searchSubmit" type="submit">
