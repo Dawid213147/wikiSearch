@@ -6,7 +6,9 @@ Wiki app search engine
     git clone https://github.com/Dawid213147/wikiSearch.git
 
 2. Open comand line in root dir o project and run commend
-'composer install' to install dependences
+'composer install' to install dependences. 
+
+4. Console will show information about missing parameters in parameters.yaml (clik enter on all of then)
 
 3. Search input is available in http://your-domain.com/web/app_dev.php
 
