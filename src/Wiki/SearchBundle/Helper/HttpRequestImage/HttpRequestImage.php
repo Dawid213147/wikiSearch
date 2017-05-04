@@ -5,7 +5,7 @@ namespace Wiki\SearchBundle\Helper\HttpRequestImage;
 use GuzzleHttp\Client;
 
 /**
- * Description of HttpRequestImage
+ * Class create request to get a image url form wiki api
  *
  * @author Dawid
  */
@@ -67,7 +67,6 @@ class HttpRequestImage {
     private function prepareData() {
 
         $pagesImage = $this->getRequestBodyAsObject();
-
         $wikiImage = json_decode(json_encode($pagesImage->query->pages->page->thumbnail['source']), TRUE);
 
         if ($wikiImage != NULL) {
@@ -79,7 +78,7 @@ class HttpRequestImage {
     }
 
     /**
-     * 
+     * Get result as simple xml object
      * @return object \SimpleXMLElement
      */
     private function getRequestBodyAsObject() {
