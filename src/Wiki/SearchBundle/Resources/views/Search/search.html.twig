@@ -1,12 +1,34 @@
 {% extends "WikiSearchBundle::base.html.twig" %}
-
 {% block pageContainer %}
+        {% set url = app.request.uri %}
+        {{ render(controller('WikiSearchBundle:SearchForm:index', { 'url': url })) }}
+<div class="resultWrapper">        
     {% if wikiPages == NULL %}
-        <p>Our website is in maintenance mode. Please, come back later.</p>
+        <p>Not found any matches.</p>
     {% else %}
-
+        <h2>Search results for {{ searchValue }} </h2>
+    <ol>
         {% for article in wikiPages %}
-            {{article.title}} <br><hr>
+        <li><a href="http://www.wikipedia.org/wiki/
+        {{ article.title }}">
+        {{ article.title }}</a> <br/>
+      <small>{{ article.snippet | raw }}</small>
+      <br>
+      <span><img src="{{ article.image }}" /></span>
+        </li>
         {% endfor %}
+    </ol>
+    <div class="bs-example">
+    <ul class="pagination">
+        <li><a href="{{ decodeUrl }}&limit=10">10 results</a></li>
+        <li><a href="{{ decodeUrl }}&limit=25">25 results</a></li>
+        <li><a href="{{ decodeUrl }}&limit=50">50 results</a></li>
+        <li><a href="{{ decodeUrl }}&limit=100">100 results</a></li>
+        <li><a href="{{ decodeUrl }}&limit=250">250 results</a></li>
+        <li><a href="{{ decodeUrl }}&limit=500">500 results</a></li>
+    </ul>
+</div>
+    </div>
     {% endif %}
 {% endblock %}
+

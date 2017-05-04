@@ -1,7 +1,11 @@
 wiki_search_homepage:
-    path:     /
-    defaults: { _controller: WikiSearchBundle:SearchForm:index }
+    resource: '@WikiSearchBundle/Controller/SearchFormController.php'
+    type: annotation
 
 app:
     resource: '@WikiSearchBundle/Controller/SearchController.php'
+    type: annotation
+    
+error_redirect:
+    resource: '@WikiSearchBundle/Controller/ErrorController.php'
     type: annotation

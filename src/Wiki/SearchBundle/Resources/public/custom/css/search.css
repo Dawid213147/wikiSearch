@@ -1,4 +1,30 @@
-.searchSubmit{
+body > div.container > form > div > div {
+    margin-top: 10%;
+}
+
+body > div.container > div.container > form > div > div {
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+.searchSubmit {
     border: none;
     background: none;
+}
+.resultWrapper {
+  margin-left: 10%;
+}
+
+.bs-example {
+    margin-right: 25%;
+    margin-left: 15%;
+}
+
+.glyphicon-arrow-right:before {
+    font-size: 50%;
+}
+#imaginary_container > a > img {
+    width: 100%;
+}
+.searchmatch {
+    font-weight: 900;
 }

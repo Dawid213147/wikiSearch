@@ -1,0 +1,11 @@
+{% extends "WikiSearchBundle::base.html.twig" %}
+
+{% block pageContainer %}
+    <center>
+        <h1>Innlegal operation. Please return to home page <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+         <a href="{{ app.request.baseUrl }}" class="btn btn-default">
+        <i class="fa fa-ban" aria-hidden="true"></i> HomePage
+    </a>
+        </h1>
+    </center>
+{% endblock %}

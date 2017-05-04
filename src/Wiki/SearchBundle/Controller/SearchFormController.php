@@ -3,6 +3,10 @@
 namespace Wiki\SearchBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Controller render a serach form
@@ -10,28 +14,25 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class SearchFormController extends Controller {
 
     /**
-     * 
-     * @return type
+     * @Route("/")
+     * Create a search form
+     * @return array
      */
-    public function indexAction() {
+    public function indexAction(Request $request, $url = null) {
 
-        $request = $this->container->get('request');
-        $routeName = $request->get('_route');
-        $currentUrl = $this->get('router')
-                ->generate($routeName, array(), true);
-        $url = $currentUrl . 'search';
+        if ($url == null) {
+           $url = $request->getUri() . 'search'; 
+        }
+        
         $form = $this->createFormBuilder()
-                ->setAction($url)
-                ->add('wikiSearch', 'search', [
-                    'label' => 'Search: ',
-                ])
-                ->add('Search', 'submit')
+                ->add('wikiSearch', SearchType::class, [
+                    'label' => 'Search: ',])
+                ->add('Search', SubmitType::class)
                 ->getForm();
-
         $response = $this->render(
             'WikiSearchBundle:SearchForm:index.html.twig', [
             'form' => $form->createView(),
-            'url' => $url
+            'url' => $url,
         ]);
 
         return $response;

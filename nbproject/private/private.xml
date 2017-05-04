@@ -6,9 +6,9 @@
             <file>file:/C:/Users/Dawid/Desktop/www/Symfony/wiki/src/Wiki/SearchBundle/Resources/views/Search/search.html.twig</file>
             <file>file:/C:/Users/Dawid/Desktop/www/Symfony/wiki/src/Wiki/SearchBundle/Controller/SearchFormController.php</file>
             <file>file:/C:/Users/Dawid/Desktop/www/Symfony/wiki/src/Wiki/SearchBundle/Resources/views/Forms/mainSearchForm.html.twig</file>
+            <file>file:/C:/Users/Dawid/Desktop/www/Symfony/wiki/src/Wiki/SearchBundle/Resources/views/autocomplete.html.twig</file>
             <file>file:/C:/Users/Dawid/Desktop/www/Symfony/wiki/src/Wiki/SearchBundle/Resources/views/base.html.twig</file>
             <file>file:/C:/Users/Dawid/Desktop/www/Symfony/wiki/src/Wiki/SearchBundle/Resources/views/SearchForm/index.html.twig</file>
-            <file>file:/C:/Users/Dawid/Desktop/www/Symfony/wiki/src/Wiki/SearchBundle/Controller/SearchController.php</file>
         </group>
     </open-files>
 </project-private>

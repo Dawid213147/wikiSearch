@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>wyszukiwarki wiki</title>
-      {% block styleContainer %}
-        <link rel="stylesheet" href="{{ asset('bundles/wikisearch/bootstrap/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/wikisearch/custom/css/search.css') }}">
-      {% endblock %}
-      
-</head>
-<body>
-    <div class="container">
-    {% block pageContainer %}
-        
-    {% endblock %}
-    </div>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>wyszukiwarki wiki</title>
+        {% block styleContainer %}
+            <link rel="stylesheet" href="{{ asset('bundles/wikisearch/bootstrap/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('bundles/wikisearch/custom/css/search.css') }}">
+            <link rel="Shortcut icon" href="{{ asset('bundles/wikisearch/custom/image/logo.png') }}" />
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            {% block pageContainer %}
+            {% endblock %}
+        </div>
+    {% include "WikiSearchBundle::autocomplete.html.twig" %}
 </body>
 </html>
