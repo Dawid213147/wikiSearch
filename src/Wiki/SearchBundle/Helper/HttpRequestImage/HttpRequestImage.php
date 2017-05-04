@@ -34,7 +34,8 @@ class HttpRequestImage {
     /**
      * Return result of request to web serwise
      * @param string $search
-     * @return array
+     * @param string $webService
+     * @return boolean|string
      */
     public function getHttpRequestImage($search, $webService) {
 

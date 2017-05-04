@@ -94,9 +94,11 @@ class HttpRequestSearch {
 
                 foreach ($cleanArray as $key => $row) {
                     $singleResult[] = call_user_func_array('array_merge', $row);
+                    if ($key == 'p') $key = 0;
                     $singleResult[$key]['image'] = $image->getHttpRequestImage($singleResult[$key]['title'], $webService);
+                                        
                 }
-
+              
                 return $singleResult;
         }
         return NULL;
