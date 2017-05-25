@@ -10,7 +10,7 @@ Wiki app search engine
 
 4. Console will show information about missing parameters in parameters.yaml (clik enter on all of then)
 
-3. Search input is available in http://your-domain.com/web/app_dev.php or http://your-domain.com/web
+3. Search input is available in http://your-domain.com/wikiSearch/web/app_dev.php or http://your-domain.com/wikiSearch/web
 
 4. Bundle Name => Wiki\SearchBundle
 
