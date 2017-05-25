@@ -5,7 +5,3 @@ wiki_search_homepage:
 app:
     resource: '@WikiSearchBundle/Controller/SearchController.php'
     type: annotation
-    
-error_redirect:
-    resource: '@WikiSearchBundle/Controller/ErrorController.php'
-    type: annotation
