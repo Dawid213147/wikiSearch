@@ -28,13 +28,13 @@ class HttpRequestSearch {
      * @var object 
      */
     private $image;
-    
+
     /**
      * Value of web service 
      * @var string 
      */
     private $webService;
-    
+
     /**
      * Constructor
      */
@@ -84,22 +84,22 @@ class HttpRequestSearch {
         $webService = $this->webService;
         $image = $this->image;
 
-        if ($pages != NULL) {
+        $wikiPages = json_decode(json_encode($pages->query->search), TRUE);
+        if ($wikiPages != NULL) {
+            $cleanArray = call_user_func_array('array_merge', $wikiPages);
 
-            $wikiPages = json_decode(json_encode($pages->query->search), TRUE);
+            $singleResult = [];
 
-                $cleanArray = call_user_func_array('array_merge', $wikiPages);
-
-                $singleResult = [];
-
-                foreach ($cleanArray as $key => $row) {
-                    $singleResult[] = call_user_func_array('array_merge', $row);
-                    if ($key == 'p') $key = 0;
-                    $singleResult[$key]['image'] = $image->getHttpRequestImage($singleResult[$key]['title'], $webService);
-                                        
+            foreach ($cleanArray as $key => $row) {
+                $singleResult[] = call_user_func_array('array_merge', $row);
+                if ($key == 'p') {
+                    $key = 0;
                 }
-              
-                return $singleResult;
+
+                $singleResult[$key]['image'] = $image->getHttpRequestImage($singleResult[$key]['title'], $webService);
+            }
+
+            return $singleResult;
         }
         return NULL;
     }
@@ -118,16 +118,4 @@ class HttpRequestSearch {
         return $xmlObject;
     }
 
-    public function clean($string) {
-        
-    $string = str_replace(array('[\', \']'), '', $string);
-    $string = preg_replace('/\[.*\]/U', '', $string);
-    $string = preg_replace('/&(amp;)?#?[a-z0-9]+;/i', '-', $string);
-    $string = htmlentities($string, ENT_COMPAT, 'utf-8');
-    $string = preg_replace('/&([a-z])(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig|quot|rsquo);/i', '\\1', $string );
-    $string = preg_replace(array('/[^a-z0-9]/i', '/[-]+/') , '-', $string);
-    return strtolower(trim($string, '-'));
-    
-    }
-    
 }
