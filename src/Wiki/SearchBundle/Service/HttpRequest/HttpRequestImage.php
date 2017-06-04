@@ -1,35 +1,15 @@
 <?php
 
-namespace Wiki\SearchBundle\Helper\HttpRequestImage;
+namespace Wiki\SearchBundle\Service\HttpRequest;
 
-use GuzzleHttp\Client;
+use Wiki\SearchBundle\Service\HttpRequestService;
 
 /**
  * Class create request to get a image url form wiki api
  *
  * @author Dawid
  */
-class HttpRequestImage {
-
-    /**
-     * Value of a http client
-     * @var object
-     */
-    private $client;
-
-    /**
-     * Value of a request
-     * @var string 
-     */
-    private $request;
-
-    /**
-     * Constructor
-     */
-    public function __construct() {
-
-        $this->client = new Client();
-    }
+class HttpRequestImage extends HttpRequestService{
 
     /**
      * Return result of request to web serwise
@@ -76,19 +56,4 @@ class HttpRequestImage {
 
         return NULL;
     }
-
-    /**
-     * Get result as simple xml object
-     * @return object \SimpleXMLElement
-     */
-    private function getRequestBodyAsObject() {
-
-        $request = $this->request;
-
-        $body = $request->getBody();
-        $xmlObject = new \SimpleXMLElement($body);
-
-        return $xmlObject;
-    }
-
 }

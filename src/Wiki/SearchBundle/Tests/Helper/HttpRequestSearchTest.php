@@ -2,7 +2,7 @@
 
 namespace Wiki\SearchBundle\Tests\Helper;
 
-use Wiki\SearchBundle\Helper\HttpRequestSearch\HttpRequestSearch;
+use Wiki\SearchBundle\Service\HttpRequest\HttpRequestSearch;
 
 /**
  * Class implements Unit test for send request to wiki api

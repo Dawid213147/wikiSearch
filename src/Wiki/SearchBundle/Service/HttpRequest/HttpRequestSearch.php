@@ -1,27 +1,15 @@
 <?php
 
-namespace Wiki\SearchBundle\Helper\HttpRequestSearch;
+namespace Wiki\SearchBundle\Service\HttpRequest;
 
-use GuzzleHttp\Client;
-use Wiki\SearchBundle\Helper\HttpRequestImage\HttpRequestImage;
+use Wiki\SearchBundle\Service\HttpRequestService;
+use Wiki\SearchBundle\Service\HttpRequest\HttpRequestImage;
 
 /**
  * Class creata a request to webservice
  * @author Dawid
  */
-class HttpRequestSearch {
-
-    /**
-     * Value of a http client
-     * @var object
-     */
-    private $client;
-
-    /**
-     * Value of a request
-     * @var string 
-     */
-    private $request;
+class HttpRequestSearch extends HttpRequestService {
 
     /**
      * Value with request to get image
@@ -40,7 +28,7 @@ class HttpRequestSearch {
      */
     public function __construct() {
 
-        $this->client = new Client();
+        parent::__construct();
         $this->image = new HttpRequestImage();
     }
 
@@ -51,7 +39,6 @@ class HttpRequestSearch {
      */
     public function getHttpRequestResult($search, $webService, $limit) {
 
-        set_time_limit(360);
         $this->webService = $webService;
         $client = $this->client;
         try {
@@ -102,20 +89,6 @@ class HttpRequestSearch {
             return $singleResult;
         }
         return NULL;
-    }
-
-    /**
-     * Get xml with search results
-     * @return object \SimpleXMLElement
-     */
-    private function getRequestBodyAsObject() {
-
-        $request = $this->request;
-
-        $body = $request->getBody();
-        $xmlObject = new \SimpleXMLElement($body);
-
-        return $xmlObject;
     }
 
 }

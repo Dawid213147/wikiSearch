@@ -4,7 +4,7 @@ namespace Wiki\SearchBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Wiki\SearchBundle\Helper\HttpRequestSearch\HttpRequestSearch;
+use Wiki\SearchBundle\Service\HttpRequest\HttpRequestSearch;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

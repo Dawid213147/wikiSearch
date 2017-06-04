@@ -2,7 +2,7 @@
 
 namespace Wiki\SearchBundle\Tests\Helper;
 
-use Wiki\SearchBundle\Helper\HttpRequestImage\HttpRequestImage;
+use Wiki\SearchBundle\Service\HttpRequest\HttpRequestImage;
 
 /**
  * Class implements Unit test for get image url form wiki api

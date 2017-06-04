@@ -1,4 +1,4 @@
 services:
-#    wiki_search.example:
-#        class: Wiki\SearchBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    wiki_search.service:
+        class: Wiki\SearchBundle\Service\HttpRequest\HttpRequestSearch
+        arguments: []
