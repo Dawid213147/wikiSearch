@@ -1,4 +1,24 @@
 services:
+
+    #factories
+    wiki_factory.client:
+        class: Wiki\SearchBundle\Factory\ClientFactory
+
     wiki_search.service:
         class: Wiki\SearchBundle\Service\HttpRequest\HttpRequestSearch
         arguments: []
+
+    wiki_client.provider.service:
+            class: Wiki\SearchBundle\Service\Client\ClientServiceProvider
+            arguments: ['@wiki_client.provider.repository']
+
+    wiki_client.provider.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - Wiki\SearchBundle\Entity\Client
+
+    wiki_client.client_handler:
+        class: Wiki\SearchBundle\Service\Client\ClientHandler
+        arguments:
+            - '@wiki_client.provider.repository'

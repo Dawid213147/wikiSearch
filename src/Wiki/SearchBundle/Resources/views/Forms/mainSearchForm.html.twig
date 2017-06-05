@@ -6,6 +6,7 @@
                 <a href="{{ app.request.baseUrl }}"><img src="{{ asset('bundles/wikisearch/custom/image/WikiApp.png') }}" ></a>
                 <div class="input-group stylish-input-group">
                     {% set wikiSearch = form.wikiSearch %}
+                    {% set category = form.category %}
                     {{ form_widget(wikiSearch, {'attr': {'class': 'form-control searchbox', 'placeholder': 'Search' }}) }}
                     {{ form_errors(wikiSearch) }}
                     <span class="input-group-addon">
@@ -15,6 +16,8 @@
                     </span>
                 </div>
             </div>
+            <div>Category: (1 - 5)</div>
+            {{ form_widget(category) }}
         </div>
 	</div>
 </div>
