@@ -22,3 +22,23 @@ services:
         class: Wiki\SearchBundle\Service\Client\ClientHandler
         arguments:
             - '@wiki_client.provider.repository'
+
+    wiki_category.provider.service:
+            class: Wiki\SearchBundle\Service\Category\CategoryServiceProvider
+            arguments: ['@wiki_category.provider.repository']
+
+    wiki_category.provider.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments:
+            - Wiki\SearchBundle\Entity\Category
+
+    wiki.client_creator:
+        class: Wiki\SearchBundle\Service\RequestStackService
+        arguments:
+            - '@request_stack'
+            - '@wiki_category.provider.service'
+            - '@wiki_factory.client'
+            - '@wiki_search.service'
+            - '%http_web_service%'
+            - '@wiki_client.client_handler'

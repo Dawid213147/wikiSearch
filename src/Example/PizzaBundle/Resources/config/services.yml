@@ -1,0 +1,4 @@
+services:
+#    example_pizza.example:
+#        class: Example\PizzaBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

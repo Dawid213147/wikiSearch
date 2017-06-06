@@ -1,3 +1,7 @@
+example_pizza:
+    resource: "@ExamplePizzaBundle/Resources/config/routing.yml"
+    prefix:   /
+
 wiki_search:
     resource: "@WikiSearchBundle/Resources/config/routing.yml"
     prefix:   /

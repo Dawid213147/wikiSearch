@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20170605101117 extends AbstractMigration
+class Version20170606072043 extends AbstractMigration
 {
     /**
      * @param Schema $schema
@@ -18,7 +18,8 @@ class Version20170605101117 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE client ADD search VARCHAR(100) DEFAULT NULL, ADD result_count VARCHAR(100) DEFAULT NULL, DROP name, DROP city');
+        $this->addSql('ALTER TABLE client ADD CONSTRAINT FK_C744045512469DE2 FOREIGN KEY (category_id) REFERENCES category (id)');
+        $this->addSql('CREATE INDEX IDX_C744045512469DE2 ON client (category_id)');
     }
 
     /**
@@ -29,6 +30,7 @@ class Version20170605101117 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE client ADD name VARCHAR(100) DEFAULT NULL COLLATE utf8_unicode_ci, ADD city VARCHAR(100) DEFAULT NULL COLLATE utf8_unicode_ci, DROP search, DROP result_count');
+        $this->addSql('ALTER TABLE client DROP FOREIGN KEY FK_C744045512469DE2');
+        $this->addSql('DROP INDEX IDX_C744045512469DE2 ON client');
     }
 }

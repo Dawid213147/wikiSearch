@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Request;
 use Wiki\SearchBundle\Repository\Client\ClientRepository;
 
@@ -32,13 +33,15 @@ class SearchFormController extends Controller
             ->add('wikiSearch', SearchType::class, [
                 'label' => 'Search: ',])
             ->add('Search', SubmitType::class)
-            ->add('category', IntegerType::class, [
-                'attr' => array(
-                    'min' => 1,
-                    'max' => 5
-                )
-            ])
+
+            ->add('category', EntityType::class, array(
+                // query choices from this entity
+                'class' => 'Wiki\SearchBundle\Entity\Category',
+                'choice_label' => 'name',
+            ))
+
             ->getForm();
+
         $response = $this->render(
             'WikiSearchBundle:SearchForm:index.html.twig', [
             'form' => $form->createView(),

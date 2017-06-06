@@ -1,0 +1,4 @@
+example_pizza_homepage:
+    resource: '@ExamplePizzaBundle/Controller/OrderController.php'
+    prefix: /api/
+    type: rest

@@ -5,7 +5,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity(repositoryClass="Wiki\SearchBundle\Repository\Category\CategoryRepository")
+ * @ORM\Entity
  * @ORM\Table(name="category")
  */
 class Category
@@ -80,6 +80,7 @@ class Category
     {
         $this->products = $products;
     }
+
 
 
     /**
